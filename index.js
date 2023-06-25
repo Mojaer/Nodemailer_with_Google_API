@@ -17,7 +17,7 @@ const sendMail = async () => {
 
     try {
         const { token } = await oAuth2Client.getAccessToken()
-        console.log(token)
+        // console.log(token)
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -33,8 +33,8 @@ const sendMail = async () => {
         )
 
         const mail = {
-            from: 'Hello 🙌 <mojaermohi2@gmail.com>',
-            to: 'mojaermohi1@gmail.com',
+            from: `Hello 🙌 <${process.env.USER}>`,
+            to: process.env.RECEIVER,
             subject: 'test subject',
             text: 'success message',
             html: '<h1>hello brothers </h1>'
